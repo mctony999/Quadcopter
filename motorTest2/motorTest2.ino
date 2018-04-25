@@ -1,26 +1,24 @@
-const int pin = 34;
-//#include <SoftwareSerial.h>
-//SoftwareSerial mySerial(34,36);
+#define pwmPin3
+const int peroid = 1000;
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(pin,OUTPUT);
-  //Serial.begin(9600);
-  //mySerial.println("AT");
-  //Serial.write("AT");
+  pinMode(pemPin , OUTPUT);
+  digitalWrite(pwmPin, LOW);
 }
 
 void loop() {
-
-  // put your main code here, to run repeatedly:
-  //while (mySerial.available()) {
-  //Serial.write(mySerial.read());}
-  
-  
-  
-  digitalWrite(pin, HIGH);
-  delayMicroseconds(700); // Approximately 10% duty cycle @ 1KHz
-  digitalWrite(pin, LOW);
-  delayMicroseconds(300);
-
-
+  int duty = 50;
+  pwm(pwmPin, 10, peroid, duty);
 }
+
+void pwm (int pin, int count, int peroid , int peroid){
+  for ( int i = 0; i < count; i++){
+    int t = mucros();
+    digitalWrite(pin,HIGH);
+    //Can do other something
+    while(micros()-t<duty);
+    digitalWrite(pemPin, LOW);
+    while(micros()-t<peroid);
+  }
+}
+
+
