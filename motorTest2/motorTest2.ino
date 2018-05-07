@@ -10,9 +10,9 @@ void loop() {
   pwm(pwmPin, 10, peroid, duty);
 }
 
-void pwm (int pin, int count, int peroid , int peroid){
+void pwm (int pin, int count, int peroid , int duty){
   for ( int i = 0; i < count; i++){
-    int t = mucros();
+    int t = micros();
     digitalWrite(pin,HIGH);
     //Can do other something
     while(micros()-t<duty);
