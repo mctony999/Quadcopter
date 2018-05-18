@@ -33,8 +33,8 @@ void loop() {
   int16_t aX, aY, aZ;
    accelgyro.getAcceleration(&aX, &aY, &aZ);
    accX = (double) aX;
-   accY = (double) aY;
-   accZ = (double) aZ;
+   accY = (double) aY*-1;
+   accZ = (double) aZ*-1;
   
   #ifdef RESTRICT_PITCH
     double roll  = atan2(accY, accZ) * R_D;
@@ -47,9 +47,9 @@ void loop() {
   //print Roll and Pitch value
   //Serial.print(accX); Serial.print("\t");
   //Serial.print(accY); Serial.print("\t");
-  //Serial.print(accZ); Serial.println("\t");
-  Serial.print(roll); Serial.print("\t");
-  Serial.print(pitch); Serial.println("\t");
+  Serial.print(accZ); Serial.println("\t");
+  //Serial.print(roll); Serial.print("\t");
+  //Serial.print(pitch); Serial.println("\t");
 
   delay(500);
 }
