@@ -149,10 +149,10 @@ void PWM (int period, int idle_duty, int Pit_duty_change, int Rol_duty_change, i
 		motor5_duty = idle_duty + Rol_duty_change;
 		}
 	else {
-		motor2_duty = idle_duty + Rol_duty_change;
-		motor3_duty = idle_duty - Rol_duty_change;
-		motor4_duty = idle_duty + Rol_duty_change;	
-		motor5_duty = idle_duty - Rol_duty_change;
+		motor2_duty = idle_duty - Rol_duty_change; // because it is negative
+		motor3_duty = idle_duty + Rol_duty_change;
+		motor4_duty = idle_duty - Rol_duty_change;	
+		motor5_duty = idle_duty + Rol_duty_change;
 	}
 	
 	if (Pit_duty_change > 0) {
@@ -162,10 +162,10 @@ void PWM (int period, int idle_duty, int Pit_duty_change, int Rol_duty_change, i
 		motor5_duty = motor5_duty - Pit_duty_change;
 		}
 	else {
-		motor2_duty = motor2_duty - Pit_duty_change;
-		motor3_duty = motor3_duty - Pit_duty_change;
-		motor4_duty = motor4_duty + Pit_duty_change;
-		motor5_duty = motor5_duty + Pit_duty_change;
+		motor2_duty = motor2_duty + Pit_duty_change;// because it is negative
+		motor3_duty = motor3_duty + Pit_duty_change;
+		motor4_duty = motor4_duty - Pit_duty_change;
+		motor5_duty = motor5_duty - Pit_duty_change;
 	}
 	
 	//!!!!!!!!!!!UP DOWN TESTING CODE!!!!!!!!!!!
